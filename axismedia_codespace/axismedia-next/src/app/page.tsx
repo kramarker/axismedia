@@ -195,7 +195,8 @@ export default function HomePage() {
               <h2>Let’s talk</h2>
               <p className="lead">Tell us about your business and we’ll send a quick plan with pricing.</p>
               {/* Replace the action with your real Formspree endpoint later */}
-              <form action="https://formspree.io/f/your-id" method="POST">
+              <form action="https://formspree.io/f/xzzypzwb" method="POST">
+                <input type="hidden" name="_redirect" value="/thanks" />
                 <label><span>Name</span><input type="text" name="name" required /></label>
                 <label><span>Email</span><input type="email" name="email" required /></label>
                 <label><span>Phone</span><input type="tel" name="phone" /></label>
@@ -225,8 +226,12 @@ export default function HomePage() {
             <a href="#">Terms</a>
           </div>
         </div>
+        <div className="container" style={{color:"var(--muted)", marginTop:12, fontSize:14}}>
+          <strong>Service Areas:</strong> Greater Chicago Area • Chicago • North Shore • Evanston • Skokie • Glenview •
+          Northbrook • Wilmette • Winnetka • Highland Park • Lake Forest • Schaumburg • Arlington Heights • Palatine •
+          Naperville • Aurora • Oak Brook • Elmhurst • Lombard • Downers Grove • Wheaton • Orland Park • Tinley Park
+        </div>
       </footer>
-
     </>
   );
 }
