@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axis Media — Digital Marketing that Moves the Needle</title>
+  <meta name="des
+  cription" content="Axis Media is a Chicago-based digital marketing team offering websites, SEO, paid ads, and content that drives revenue for blue‑collar and local service businesses." />
+  <meta property="og:title" content="Axis Media — Digital Marketing that Moves the Needle" />
+  <meta property="og:description" content="Websites, SEO, ads, and content for local service businesses. Measurable results, zero fluff." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://axismedia.example" />
+  <meta property="og:image" content="https://axismedia.example/og.jpg" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      --bg: #0b0e12;
+      --surface: #12161c;
+      --muted: #9aa3af;
+      --text: #e5e7eb;
+      --brand: #4f8cff; /* electric blue */
+      --brand-2: #7bd389; /* accent green */
+      --maxw: 1120px;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:600;border:1px solid rgba(255,255,255,.1);transition:.2s ease;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),#7aa9ff);color:#fff;border-color:transparent}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text)}
+    .btn-ghost:hover{background:rgba(255,255,255,.06)}
+
+    /* Topbar */
+    header{position:sticky;top:0;background:rgba(11,14,18,.75);backdrop-filter:saturate(160%) blur(8px);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .logo-mark{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 210deg at 50% 50%, var(--brand), var(--brand-2));box-shadow:0 4px 16px rgba(79,140,255,.35)}
+    nav a{opacity:.85;padding:10px 12px;border-radius:10px}
+    nav a:hover{background:rgba(255,255,255,.06);opacity:1}
+    .nav-links{display:flex;gap:6px}
+    .mobile-menu{display:none}
+
+    /* Hero */
+    .hero{position:relative;padding:96px 0 56px;background:radial-gradient(80% 60% at 50% 0, rgba(79,140,255,.12), transparent 60%), linear-gradient(180deg, rgba(18,22,28,.8), rgba(11,14,18,1))}
+    .hero h1{font-size:clamp(32px, 6vw, 56px);line-height:1.05;margin:0 0 14px}
+    .hero p{color:var(--muted);font-size:clamp(16px,2.2vw,20px);max-width:760px}
+    .hero-cta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+    .trust{display:flex;gap:24px;align-items:center;margin-top:36px;color:var(--muted);flex-wrap:wrap}
+    .trust small{opacity:.9}
+
+    /* Cards */
+    .section{padding:72px 0}
+    .section h2{font-size:clamp(26px,4.5vw,36px);line-height:1.15;margin:0 0 10px}
+    .section p.lead{color:var(--muted);max-width:800px;margin-top:6px}
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);height:100%}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(79,140,255,.12);border:1px solid rgba(79,140,255,.35);color:#cfe0ff;font-weight:600;font-size:12px;letter-spacing:.2px}
+
+    /* Showcase */
+    .showcase{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .mock{background:linear-gradient(180deg,#0f1319,#0a0d12);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .window{height:280px;border-radius:12px;background:linear-gradient(180deg, #17202b, #0e131a);border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+    .window::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 0 0, rgba(79,140,255,.2), transparent 45%), radial-gradient(80% 60% at 100% 100%, rgba(123,211,137,.18), transparent 35%)}
+
+    /* Process */
+    .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
+    .step{padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01))}
+    .step .num{font-weight:800;color:#cfe0ff}
+
+    /* Pricing */
+    .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+    .price{font-size:34px;font-weight:800}
+    .plan .features{list-style:none;padding:0;margin:14px 0 0}
+    .plan .features li{margin:10px 0;color:var(--muted)}
+
+    /* Testimonials */
+    .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    blockquote{margin:0}
+    .q{font-style:italic;color:#cbd5e1}
+
+    /* Contact */
+    form{display:grid;gap:12px;margin-top:12px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e1217;color:var(--text)}
+    textarea{min-height:120px}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-2{grid-template-columns:1fr}
+      .showcase{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .plans{grid-template-columns:1fr}
+      .quotes{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      nav .nav-links{display:none}
+      .mobile-menu{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Axis Media home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Axis <span style="color:var(--brand)">Media</span></span>
+      </a>
+      <nav>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="mobile-menu btn btn-ghost" aria-label="Open menu" onclick="toggleMenu()">Menu</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="chip">Chicagoland • Local Service Specialists</div>
+        <h1>Websites & growth for blue‑collar businesses.</h1>
+        <p>We build fast, clean websites and run campaigns that turn searches into phone calls. Electricians, HVAC, plumbers, landscapers — if you work with your hands, we help fill your calendar.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get a free audit</a>
+          <a class="btn btn-ghost" href="#work">See recent wins</a>
+        </div>
+        <div class="trust">
+          <small>Average site load: <strong>&lt;1.2s</strong></small>
+          <small>Core Web Vitals: <strong>Green</strong></small>
+          <small>Response time: <strong>&lt;24h</strong></small>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>What we do</h2>
+        <p class="lead">Everything you need to get found and hired — packaged for busy owners.</p>
+        <div class="grid grid-3" style="margin-top:16px">
+          <article class="card">
+            <h3>Website Design & Build</h3>
+            <p>Modern, mobile‑first sites that load fast and showcase your work. Hosting & maintenance included.</p>
+          </article>
+          <article class="card">
+            <h3>SEO That Actually Works</h3>
+            <p>Local SEO, citations, reviews, and content that ranks in your service areas.</p>
+          </article>
+          <article class="card">
+            <h3>Paid Ads & Tracking</h3>
+            <p>Google Ads and Meta campaigns with call tracking so you see exactly what converts.</p>
+          </article>
+          <article class="card">
+            <h3>Photo & Video Packages</h3>
+            <p>Simple on‑site shoots and edits that make your jobs look premium.</p>
+          </article>
+          <article class="card">
+            <h3>Brand & Copy</h3>
+            <p>Clear messaging and visual identity that feels professional, not corporate.</p>
+          </article>
+          <article class="card">
+            <h3>Review Engine</h3>
+            <p>Inbox‑simple follow‑ups that turn happy customers into 5‑star reviews.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section" aria-label="Selected work">
+      <div class="container showcase">
+        <div>
+          <h2>Recent work</h2>
+          <p class="lead">Before/after rebuilds and ad campaigns for local service pros.</p>
+          <div class="grid grid-2" style="margin-top:16px">
+            <div class="mock">
+              <div class="window"></div>
+              <div style="padding:10px 4px 0;color:var(--muted)">Electrician • 3.2× more calls after site refresh</div>
+            </div>
+            <div class="mock">
+              <div class="window"></div>
+              <div style="padding:10px 4px 0;color:var(--muted)">HVAC • $38 cost‑per‑lead with call tracking</div>
+            </div>
+          </div>
+        </div>
+        <aside class="card">
+          <h3>Why this works</h3>
+          <ul>
+            <li>Fast pages win local search and conversions.</li>
+            <li>Clear calls‑to‑action route to phone & forms.</li>
+            <li>We write for humans first, Google second.</li>
+            <li>We measure every call and form submission.</li>
+          </ul>
+          <p style="margin-top:10px"><a class="btn btn-primary" href="#contact">Ask for an audit</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <h2>Proven process</h2>
+        <p class="lead">Simple, transparent, and quick — most sites launch in 2–3 weeks.</p>
+        <div class="steps">
+          <div class="step"><div class="num">01</div><strong>Discovery</strong><br><span class="muted">30‑min call to align on goals and budget.</span></div>
+          <div class="step"><div class="num">02</div><strong>Strategy</strong><br><span class="muted">Site map, messaging, keywords, ad plan.</span></div>
+          <div class="step"><div class="num">03</div><strong>Build</strong><br><span class="muted">Design + development with weekly check‑ins.</span></div>
+          <div class="step"><div class="num">04</div><strong>Launch & Grow</strong><br><span class="muted">Tracking live, iterate with SEO & ads.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2>Simple pricing</h2>
+        <p class="lead">Start small, scale when it’s working. Month‑to‑month options available.</p>
+        <div class="plans">
+          <article class="card plan">
+            <h3>Starter Website</h3>
+            <div class="price">$990</div>
+            <ul class="features">
+              <li>Up to 4 pages</li>
+              <li>Mobile‑first, fast hosting</li>
+              <li>Basic SEO + analytics</li>
+              <li>1 week turnaround</li>
+            </ul>
+            <p style="margin-top:14px"><a href="#contact" class="btn btn-primary">Get started</a></p>
+          </article>
+          <article class="card plan" style="outline:2px solid rgba(79,140,255,.5)">
+            <h3>Local Growth</h3>
+            <div class="price">$1,990</div>
+            <ul class="features">
+              <li>Up to 8 pages</li>
+              <li>Local SEO setup</li>
+              <li>Reviews + call tracking</li>
+              <li>Copywriting included</li>
+            </ul>
+            <p style="margin-top:14px"><a href="#contact" class="btn btn-primary">Book a consult</a></p>
+          </article>
+          <article class="card plan">
+            <h3>Ongoing</h3>
+            <div class="price">from $499/mo</div>
+            <ul class="features">
+              <li>SEO & content</li>
+              <li>Google Ads management</li>
+              <li>Site care & updates</li>
+              <li>Monthly reporting</li>
+            </ul>
+            <p style="margin-top:14px"><a href="#contact" class="btn btn-primary">See packages</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container grid grid-2">
+        <div>
+          <h2>Built by students, obsessed with results</h2>
+          <p class="lead">We’re Axis Media — a small team of UIUC engineers and creators who ship fast, talk straight, and measure everything.</p>
+          <ul>
+            <li>Honest timelines and clear pricing.</li>
+            <li>No long contracts. We earn the renewal.</li>
+            <li>You own your site and your data.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What we value</h3>
+          <p><strong>Speed</strong> over perfection. <strong>Clarity</strong> over jargon. <strong>Proof</strong> over promises.</p>
+          <p class="muted">Bring us your mess. We’ll bring a plan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container grid grid-2">
+        <div>
+          <h2>Let’s talk</h2>
+          <p class="lead">Tell us about your business and we’ll send a quick plan with pricing.</p>
+          <form action="https://formspree.io/f/your-id" method="POST">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" />
+            </label>
+            <label>
+              <span>What do you need?</span>
+              <textarea name="message" placeholder="Website, SEO, ads…"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </form>
+          <p style="color:var(--muted);font-size:14px;margin-top:8px">By submitting, you agree we may contact you about your project. No spam.</p>
+        </div>
+        <div class="card">
+          <h3>Contact details</h3>
+          <p>Phone: <a href="tel:+12242345689">(224) 234‑5689</a><br>Chicagoland, IL</p>
+          <p class="muted">Email: <em>coming soon</em></p>
+          <p class="muted">Prefer text? Add your number in the form and we’ll text you back.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Axis Media. All rights reserved.</div>
+      <div style="display:flex;gap:12px">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu placeholder (could be expanded to an actual drawer)
+    function toggleMenu(){
+      const links = document.querySelector('.nav-links');
+      if(!links) return;
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.gap = '8px';
+      links.style.padding = '10px 0';
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
