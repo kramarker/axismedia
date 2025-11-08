@@ -11,14 +11,12 @@ const ORIGIN = "https://axismedia-next.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(ORIGIN),
   title: "Axis Media — Digital Marketing that Moves the Needle",
-  description:
-    "Websites, SEO, and ads that turn searches into phone calls. Serving the Greater Chicago Area.",
+  description: "Websites, SEO, and ads that turn searches into phone calls. Serving the Greater Chicago Area.",
   openGraph: {
     type: "website",
     url: "/",
     title: "Axis Media — Websites, SEO & Ads for Chicago Service Businesses",
-    description:
-      "Fast, clean websites and campaigns that fill your calendar. Greater Chicago Area.",
+    description: "Fast, clean websites and campaigns that fill your calendar. Greater Chicago Area.",
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Axis Media — Digital Marketing" }],
     locale: "en_US",
     siteName: "Axis Media",
@@ -31,19 +29,15 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
+  verification: { google: "z2yMv30rGV3rYew7ishGzRsBR0zg3-Jxz97_G60x8zE" }, // <-- your code here
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-      <meta name="google-site-verification" content="z2yMv30rGV3rYew7ishGzRsBR0zg3-Jxz97_G60x8zE" />
-      </head>
       <body className="antialiased text-slate-900 bg-white">
-        {/* Google Analytics 4 */}
         <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
-        {/* Consent defaults (optional) */}
         <Script id="consent-defaults" strategy="afterInteractive">
           {`
             if (typeof gtag === 'function') {
@@ -56,7 +50,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* LocalBusiness JSON-LD */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
@@ -77,21 +70,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "Downers Grove","Wheaton","Orland Park","Tinley Park","Aurora"
               ],
               telephone: "+1-224-234-5689",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Chicagoland",
-                addressRegion: "IL",
-                addressCountry: "US"
-              },
+              address: { "@type": "PostalAddress", addressLocality: "Chicagoland", addressRegion: "IL", addressCountry: "US" },
               priceRange: "$$"
             }),
           }}
         />
 
-        {/* Track SPA route changes */}
         <AnalyticsPinger />
-
-        {/* Global header/footer shell */}
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
