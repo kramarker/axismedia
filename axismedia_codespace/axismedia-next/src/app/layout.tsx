@@ -40,7 +40,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {/* JSON-LD structured data */}
+        {/* --- Google Analytics 4 (GA4) --- */}
+        <Script
+          id="ga4-lib"
+          src="https://www.googletagmanager.com/gtag/js?id=G-0BQ9TET3XZ"
+          strategy="beforeInteractive"
+        />
+        <Script
+          id="ga4-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0BQ9TET3XZ', {
+                page_path: window.location.pathname,
+                debug_mode: true
+              });
+            `,
+          }}
+        />
+
+        {/* --- JSON-LD structured data for LocalBusiness --- */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
@@ -73,44 +95,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "Wheaton",
                 "Orland Park",
                 "Tinley Park",
-                "Aurora",
+                "Aurora"
               ],
               telephone: "+1-224-234-5689",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Chicagoland",
                 addressRegion: "IL",
-                addressCountry: "US",
-              },
+                addressCountry: "US"
+              }
             }),
           }}
-        />
-
-        {/* Google Analytics 4 */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-0BQ9TET3XZ"
-        />
-        <Script
-          id="ga4-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0BQ9TET3XZ', { page_path: window.location.pathname });
-            `,
-          }}
-        />
-
-        {/* Plausible (optional – you can remove if you only want GA4) */}
-        <Script
-          id="plausible"
-          strategy="afterInteractive"
-          defer
-          data-domain="axismedia-next-kt65dbdit-kramarkers-projects.vercel.app"
-          src="https://plausible.io/js/script.js"
         />
 
         {children}
