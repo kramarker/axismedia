@@ -31,19 +31,21 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
-
-  // ✅ Google Search Console (HTML tag value)
-  verification: { google: "SK_REIr_mAHP6M3iDoGOjGQnwP5KjXS8Tj-H51LIxis" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Manual Google Verification Meta Tag */}
+        <meta
+          name="google-site-verification"
+          content="SK_REIr_mAHP6M3iDoGOjGQnwP5KjXS8Tj-H51LIxis"
+        />
+      </head>
       <body className="antialiased text-slate-900 bg-white">
-        {/* Google Analytics 4 */}
         <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
-        {/* Consent defaults (optional) */}
         <Script id="consent-defaults" strategy="afterInteractive">
           {`
             if (typeof gtag === 'function') {
@@ -56,7 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* LocalBusiness JSON-LD */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
@@ -88,10 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* Track SPA route changes */}
         <AnalyticsPinger />
-
-        {/* Global header/footer */}
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
