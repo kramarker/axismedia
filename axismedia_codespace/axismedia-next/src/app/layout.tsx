@@ -2,10 +2,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { AnalyticsPinger } from "./analytics";
-import SiteShell from "./components/site-shell";
+// IMPORTANT: use the client component version
+import SiteShell from "./components/site-shell.client";
 
 const ORIGIN = "https://axismediachicago.com";
 
@@ -40,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Build tag to verify the live build */}
         <meta name="build-tag" content="gsc-verify-3" />
-        {/* Google Search Console verification */}
+        {/* Google Search Console verification (keep only ONE token overall) */}
         <meta
           name="google-site-verification"
           content="SK_REIr_mAHP6M3iDoGOjGQnwP5KjXS8Tj-H51LIxis"
@@ -95,11 +96,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* Tracks SPA route changes */}
-        <AnalyticsPinger />
-
-        {/* Suspense boundary fixes the /404 CSR bailout warning */}
+        {/* Put ALL client hooks inside Suspense */}
         <Suspense fallback={null}>
+          <AnalyticsPinger />
           <SiteShell>{children}</SiteShell>
         </Suspense>
       </body>

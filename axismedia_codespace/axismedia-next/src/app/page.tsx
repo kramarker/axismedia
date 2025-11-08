@@ -1,11 +1,16 @@
 // src/app/page.tsx
-// server component is fine now (no toggleMenu needed)
 "use client";
 
 import Link from "next/link";
 
 export default function HomePage() {
   const year = new Date().getFullYear();
+
+  const track = (event: string, params?: Record<string, any>) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", event, params || {});
+    }
+  };
 
   return (
     <>
@@ -83,7 +88,9 @@ export default function HomePage() {
               <li>We write for humans first, Google second.</li>
               <li>We measure every call and form submission.</li>
             </ul>
-            <p className="mt-14"><a className="btn btn-primary" href="#contact">Ask for an audit</a></p>
+            <p className="mt-14">
+              <a className="btn btn-primary" href="#contact">Ask for an audit</a>
+            </p>
           </aside>
         </div>
       </section>
@@ -106,7 +113,7 @@ export default function HomePage() {
       <section id="pricing" className="section">
         <div className="container">
           <h2>Simple pricing</h2>
-        <p className="lead">Start small, scale when it’s working. Month-to-month options available.</p>
+          <p className="lead">Start small, scale when it’s working. Month-to-month options available.</p>
           <div className="plans">
             <article className="card plan">
               <h3>Starter Website</h3>
@@ -172,15 +179,11 @@ export default function HomePage() {
             <h2>Let’s talk</h2>
             <p className="lead">Tell us about your business and we’ll send a quick plan with pricing.</p>
 
-            {/* keep your existing Formspree endpoint */}
+            {/* Formspree */}
             <form
               action="https://formspree.io/f/xzzypzwb"
               method="POST"
-              onSubmit={() => {
-                if (typeof window !== "undefined" && (window as any).gtag) {
-                  (window as any).gtag("event", "generate_lead", { method: "formspree" });
-                }
-              }}
+              onSubmit={() => track("generate_lead", { method: "formspree" })}
             >
               <input type="hidden" name="_redirect" value="/thanks" />
               <label><span>Name</span><input type="text" name="name" required /></label>
@@ -198,9 +201,7 @@ export default function HomePage() {
               Phone:{" "}
               <a
                 href="tel:+12242345689"
-                onClick={() => {
-                  if ((window as any).gtag) (window as any).gtag("event", "click_contact", { channel: "phone" });
-                }}
+                onClick={() => track("click_contact", { channel: "phone" })}
               >
                 (224) 234-5689
               </a>
@@ -211,15 +212,13 @@ export default function HomePage() {
               Email:{" "}
               <a
                 href="mailto:hello@axismedia.co"
-                onClick={() => {
-                  if ((window as any).gtag) (window as any).gtag("event", "click_contact", { channel: "email" });
-                }}
+                onClick={() => track("click_contact", { channel: "email" })}
               >
                 hello@axismedia.co
               </a>
             </p>
             <p className="muted">Prefer text? Add your number in the form and we’ll text you back.</p>
-            <div style={{color:"var(--muted)", marginTop:12, fontSize:14}}>
+            <div style={{ color: "var(--muted)", marginTop: 12, fontSize: 14 }}>
               <strong>Service Areas:</strong> Greater Chicago Area • Chicago • North Shore • Evanston • Skokie • Glenview •
               Northbrook • Wilmette • Winnetka • Highland Park • Lake Forest • Schaumburg • Arlington Heights • Palatine •
               Naperville • Aurora • Oak Brook • Elmhurst • Lombard • Downers Grove • Wheaton • Orland Park • Tinley Park
@@ -227,6 +226,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FOOTER NOTE (if you ever need it in page) */}
+      <footer style={{ display: "none" }}>
+        © {year} Axis Media
+      </footer>
     </>
   );
 }

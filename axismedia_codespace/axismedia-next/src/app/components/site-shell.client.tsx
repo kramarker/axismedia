@@ -1,6 +1,11 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
 
-export default function SiteShell({ children }: { children: React.ReactNode }) {
+type Props = { children: React.ReactNode };
+
+export default function SiteShell({ children }: Props) {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-40 border-b bg-white/70 backdrop-blur">
