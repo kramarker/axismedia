@@ -1,7 +1,8 @@
 // src/app/layout.tsx
-import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://axismedia-next.vercel.app"),
@@ -34,28 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {/* Google Analytics 4 (load after interactive so the tag appears plainly) */}
-        <Script
-          id="ga4-lib"
-          src="https://www.googletagmanager.com/gtag/js?id=G-0BQ9TET3XZ"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="ga4-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0BQ9TET3XZ', {
-                page_path: window.location.pathname
-              });
-            `,
-          }}
-        />
+        {/* Google Analytics 4 — official Next helper renders the raw tag */}
+        <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
-        {/* LocalBusiness JSON-LD */}
+        {/* LocalBusiness JSON-LD (safe to keep) */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
