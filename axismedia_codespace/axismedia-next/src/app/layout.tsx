@@ -3,9 +3,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { AnalyticsPinger } from "./analytics";
+import SiteShell from "./components/site-shell";
+
+const ORIGIN = "https://axismedia-next.vercel.app";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://axismedia-next.vercel.app"),
+  metadataBase: new URL(ORIGIN),
   title: "Axis Media — Digital Marketing that Moves the Needle",
   description:
     "Websites, SEO, and ads that turn searches into phone calls. Serving the Greater Chicago Area.",
@@ -15,9 +19,7 @@ export const metadata: Metadata = {
     title: "Axis Media — Websites, SEO & Ads for Chicago Service Businesses",
     description:
       "Fast, clean websites and campaigns that fill your calendar. Greater Chicago Area.",
-    images: [
-      { url: "/og.jpg", width: 1200, height: 630, alt: "Axis Media — Digital Marketing" },
-    ],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Axis Media — Digital Marketing" }],
     locale: "en_US",
     siteName: "Axis Media",
   },
@@ -28,17 +30,33 @@ export const metadata: Metadata = {
     images: ["/og.jpg"],
   },
   alternates: { canonical: "/" },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        {/* Google Analytics 4 — official Next helper renders the raw tag */}
+      <head>
+      <meta name="google-site-verification" content="z2yMv30rGV3rYew7ishGzRsBR0zg3-Jxz97_G60x8zE" />
+      </head>
+      <body className="antialiased text-slate-900 bg-white">
+        {/* Google Analytics 4 */}
         <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
-        {/* LocalBusiness JSON-LD (safe to keep) */}
+        {/* Consent defaults (optional) */}
+        <Script id="consent-defaults" strategy="afterInteractive">
+          {`
+            if (typeof gtag === 'function') {
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                analytics_storage: 'granted',
+                wait_for_update: 500
+              });
+            }
+          `}
+        </Script>
+
+        {/* LocalBusiness JSON-LD */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
@@ -46,11 +64,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": "ProfessionalService",
+              "@id": `${ORIGIN}#axis-media`,
               name: "Axis Media",
+              url: ORIGIN,
               description:
                 "Digital marketing for blue-collar and local service businesses in the Greater Chicago Area.",
-              url: "https://axismedia-next-kt65dbdit-kramarkers-projects.vercel.app",
               areaServed: [
                 "Chicago","Greater Chicago Area","Evanston","Schaumburg","Naperville",
                 "North Shore","Arlington Heights","Glenview","Northbrook","Wilmette",
@@ -63,12 +82,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 addressLocality: "Chicagoland",
                 addressRegion: "IL",
                 addressCountry: "US"
-              }
+              },
+              priceRange: "$$"
             }),
           }}
         />
 
-        {children}
+        {/* Track SPA route changes */}
+        <AnalyticsPinger />
+
+        {/* Global header/footer shell */}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
