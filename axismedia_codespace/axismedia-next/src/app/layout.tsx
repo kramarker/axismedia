@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
-  verification: { google: "z2yMv30rGV3rYew7ishGzRsBR0zg3-Jxz97_G60x8zE" }, // <-- your code here
+  verification: { google: "NAE-Gcdo8348mg8-KbZJIhhbyWWFV1SWHj78XuTAA_w" }, // <-- your code here
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
