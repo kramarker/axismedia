@@ -37,15 +37,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* ✅ Build tag for sanity check */}
+        <meta name="build-tag" content="gsc-verify-3" />
         {/* ✅ Manual Google Verification Meta Tag */}
         <meta
           name="google-site-verification"
           content="SK_REIr_mAHP6M3iDoGOjGQnwP5KjXS8Tj-H51LIxis"
         />
       </head>
+
       <body className="antialiased text-slate-900 bg-white">
+        {/* Google Analytics */}
         <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
+        {/* Consent defaults */}
         <Script id="consent-defaults" strategy="afterInteractive">
           {`
             if (typeof gtag === 'function') {
@@ -58,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
+        {/* LocalBusiness JSON-LD Schema */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
@@ -89,7 +95,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
+        {/* Analytics Route Tracker */}
         <AnalyticsPinger />
+
+        {/* Site Shell (header/footer) */}
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
