@@ -4,8 +4,6 @@
 import Link from "next/link";
 
 export default function HomePage() {
-  const year = new Date().getFullYear();
-
   const track = (event: string, params?: Record<string, any>) => {
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag("event", event, params || {});
@@ -15,22 +13,18 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="hero" id="top">
+      <section className="hero-new" id="top">
         <div className="container">
-          <div className="chip">Chicagoland • Local Service Specialists</div>
-          <h1>Websites &amp; growth for blue-collar businesses.</h1>
-          <p>
-            We build fast, clean websites and run campaigns that turn searches into phone calls.
-            Electricians, HVAC, plumbers, landscapers — if you work with your hands, we help fill your calendar.
+          <div className="chip-new">Chicagoland • Local Service Specialists</div>
+          <h1 className="hero-title">
+            Websites & growth for blue-collar businesses.
+          </h1>
+          <p className="hero-sub">
+            Fast, clean sites and data-driven SEO & ads that turn local searches into phone calls.
           </p>
           <div className="hero-cta">
             <a className="btn btn-primary" href="#contact">Get a free audit</a>
-            <a className="btn btn-ghost" href="#work">See recent wins</a>
-          </div>
-          <div className="trust">
-            <small>Average site load: <strong>&lt;1.2s</strong></small>
-            <small>Core Web Vitals: <strong>Green</strong></small>
-            <small>Response time: <strong>&lt;24h</strong></small>
+            <a className="btn btn-ghost" href="#work">See recent projects</a>
           </div>
         </div>
       </section>
@@ -54,7 +48,7 @@ export default function HomePage() {
               <p>Simple on-site shoots and edits that make your jobs look premium.</p>
             </article>
             <article className="card"><h3>Brand &amp; Copy</h3>
-              <p>Clear messaging and visual identity that feels professional, not corporate.</p>
+              <p>Clear messaging and a professional visual identity, built for trust.</p>
             </article>
             <article className="card"><h3>Review Engine</h3>
               <p>Inbox-simple follow-ups that turn happy customers into 5-star reviews.</p>
@@ -68,15 +62,15 @@ export default function HomePage() {
         <div className="container showcase">
           <div>
             <h2>Recent work</h2>
-            <p className="lead">Before/after rebuilds and ad campaigns for local service pros.</p>
+            <p className="lead">We’ll showcase before/after rebuilds and ad campaigns here.</p>
             <div className="grid grid-2 mt-16">
               <div className="mock">
-                <div className="window"></div>
-                <div className="caption">Electrician • 3.2× more calls after site refresh</div>
+                <div className="window" />
+                <div className="caption">Project showcase placeholder</div>
               </div>
               <div className="mock">
-                <div className="window"></div>
-                <div className="caption">HVAC • $38 cost-per-lead with call tracking</div>
+                <div className="window" />
+                <div className="caption">Project showcase placeholder</div>
               </div>
             </div>
           </div>
@@ -101,7 +95,7 @@ export default function HomePage() {
           <h2>Proven process</h2>
           <p className="lead">Simple, transparent, and quick — most sites launch in 2–3 weeks.</p>
           <div className="steps">
-            <div className="step"><div className="num">01</div><strong>Discovery</strong><br /><span className="muted">30-min call to align on goals and budget.</span></div>
+            <div className="step"><div className="num">01</div><strong>Discovery</strong><br /><span className="muted">Call to align on goals and budget.</span></div>
             <div className="step"><div className="num">02</div><strong>Strategy</strong><br /><span className="muted">Site map, messaging, keywords, ad plan.</span></div>
             <div className="step"><div className="num">03</div><strong>Build</strong><br /><span className="muted">Design + development with weekly check-ins.</span></div>
             <div className="step"><div className="num">04</div><strong>Launch &amp; Grow</strong><br /><span className="muted">Tracking live, iterate with SEO &amp; ads.</span></div>
@@ -128,7 +122,7 @@ export default function HomePage() {
             </article>
             <article className="card plan featured">
               <h3>Local Growth</h3>
-              <div className="price">$1,990</div>
+              <div className="price">$2,490</div>
               <ul className="features">
                 <li>Up to 8 pages</li>
                 <li>Local SEO setup</li>
@@ -140,6 +134,7 @@ export default function HomePage() {
             <article className="card plan">
               <h3>Ongoing</h3>
               <div className="price">from $499/mo</div>
+              <div className="muted" style={{ marginTop: 6 }}>or <strong>$5,090/yr</strong> (save 15%)</div>
               <ul className="features">
                 <li>SEO &amp; content</li>
                 <li>Google Ads management</li>
@@ -152,12 +147,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* ABOUT (trimmed to remove UIUC line) */}
       <section id="about" className="section">
         <div className="container grid grid-2">
           <div>
-            <h2>Built by students, obsessed with results</h2>
-            <p className="lead">We’re Axis Media — a small team of UIUC engineers and creators who ship fast, talk straight, and measure everything.</p>
+            <h2>About Axis Media</h2>
+            <p className="lead">
+              A small team that ships fast, talks straight, and measures everything — built for local service businesses.
+            </p>
             <ul>
               <li>Honest timelines and clear pricing.</li>
               <li>No long contracts. We earn the renewal.</li>
@@ -185,7 +182,8 @@ export default function HomePage() {
               method="POST"
               onSubmit={() => track("generate_lead", { method: "formspree" })}
             >
-              <input type="hidden" name="_redirect" value="/thanks" />
+              {/* ✅ absolute URL for redirect */}
+              <input type="hidden" name="_redirect" value="https://axismediachicago.com/thanks" />
               <label><span>Name</span><input type="text" name="name" required /></label>
               <label><span>Email</span><input type="email" name="email" required /></label>
               <label><span>Phone</span><input type="tel" name="phone" /></label>
@@ -218,19 +216,15 @@ export default function HomePage() {
               </a>
             </p>
             <p className="muted">Prefer text? Add your number in the form and we’ll text you back.</p>
-            <div style={{ color: "var(--muted)", marginTop: 12, fontSize: 14 }}>
+            <div style={{color:"var(--muted)", marginTop:12, fontSize:14}}>
               <strong>Service Areas:</strong> Greater Chicago Area • Chicago • North Shore • Evanston • Skokie • Glenview •
               Northbrook • Wilmette • Winnetka • Highland Park • Lake Forest • Schaumburg • Arlington Heights • Palatine •
-              Naperville • Aurora • Oak Brook • Elmhurst • Lombard • Downers Grove • Wheaton • Orland Park • Tinley Park
+              Naperville • Aurora • Oak Brook • Elmhurst • Lombard • Downers Grove • Wheaton • Orland Park • Tinley Park •
+              Niles • Morton Grove • Des Plaines
             </div>
           </div>
         </div>
       </section>
-
-      {/* FOOTER NOTE (if you ever need it in page) */}
-      <footer style={{ display: "none" }}>
-        © {year} Axis Media
-      </footer>
     </>
   );
 }
