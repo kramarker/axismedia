@@ -15,12 +15,7 @@ export const metadata: Metadata = {
     description:
       "Fast, clean websites and campaigns that fill your calendar. Greater Chicago Area.",
     images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Axis Media — Digital Marketing",
-      },
+      { url: "/og.jpg", width: 1200, height: 630, alt: "Axis Media — Digital Marketing" },
     ],
     locale: "en_US",
     siteName: "Axis Media",
@@ -28,8 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Axis Media — Digital Marketing for Chicago",
-    description:
-      "Websites, SEO, and ads that turn searches into phone calls.",
+    description: "Websites, SEO, and ads that turn searches into phone calls.",
     images: ["/og.jpg"],
   },
   alternates: { canonical: "/" },
@@ -40,11 +34,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {/* --- Google Analytics 4 (GA4) --- */}
+        {/* Google Analytics 4 (load after interactive so the tag appears plainly) */}
         <Script
           id="ga4-lib"
           src="https://www.googletagmanager.com/gtag/js?id=G-0BQ9TET3XZ"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Script
           id="ga4-init"
@@ -55,18 +49,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-0BQ9TET3XZ', {
-                page_path: window.location.pathname,
-                debug_mode: true
+                page_path: window.location.pathname
               });
             `,
           }}
         />
 
-        {/* --- JSON-LD structured data for LocalBusiness --- */}
+        {/* LocalBusiness JSON-LD */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -76,26 +69,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "Digital marketing for blue-collar and local service businesses in the Greater Chicago Area.",
               url: "https://axismedia-next-kt65dbdit-kramarkers-projects.vercel.app",
               areaServed: [
-                "Chicago",
-                "Greater Chicago Area",
-                "Evanston",
-                "Schaumburg",
-                "Naperville",
-                "North Shore",
-                "Arlington Heights",
-                "Glenview",
-                "Northbrook",
-                "Wilmette",
-                "Winnetka",
-                "Highland Park",
-                "Lake Forest",
-                "Oak Brook",
-                "Elmhurst",
-                "Downers Grove",
-                "Wheaton",
-                "Orland Park",
-                "Tinley Park",
-                "Aurora"
+                "Chicago","Greater Chicago Area","Evanston","Schaumburg","Naperville",
+                "North Shore","Arlington Heights","Glenview","Northbrook","Wilmette",
+                "Winnetka","Highland Park","Lake Forest","Oak Brook","Elmhurst",
+                "Downers Grove","Wheaton","Orland Park","Tinley Park","Aurora"
               ],
               telephone: "+1-224-234-5689",
               address: {
