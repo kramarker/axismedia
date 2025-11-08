@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { AnalyticsPinger } from "./analytics";
 import SiteShell from "./components/site-shell";
@@ -37,20 +38,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* ✅ Build tag for sanity check */}
+        {/* Build tag to verify the live build */}
         <meta name="build-tag" content="gsc-verify-3" />
-        {/* ✅ Manual Google Verification Meta Tag */}
+        {/* Google Search Console verification */}
         <meta
           name="google-site-verification"
           content="SK_REIr_mAHP6M3iDoGOjGQnwP5KjXS8Tj-H51LIxis"
         />
       </head>
-
       <body className="antialiased text-slate-900 bg-white">
         {/* Google Analytics */}
         <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
-        {/* Consent defaults */}
+        {/* Consent defaults (optional) */}
         <Script id="consent-defaults" strategy="afterInteractive">
           {`
             if (typeof gtag === 'function') {
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* LocalBusiness JSON-LD Schema */}
+        {/* JSON-LD */}
         <Script
           id="axis-jsonld"
           type="application/ld+json"
@@ -95,11 +95,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* Analytics Route Tracker */}
+        {/* Tracks SPA route changes */}
         <AnalyticsPinger />
 
-        {/* Site Shell (header/footer) */}
-        <SiteShell>{children}</SiteShell>
+        {/* Suspense boundary fixes the /404 CSR bailout warning */}
+        <Suspense fallback={null}>
+          <SiteShell>{children}</SiteShell>
+        </Suspense>
       </body>
     </html>
   );
