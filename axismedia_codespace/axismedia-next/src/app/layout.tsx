@@ -3,18 +3,36 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
 
-
 export const metadata: Metadata = {
+  metadataBase: new URL("https://axismedia-next.vercel.app"),
   title: "Axis Media — Digital Marketing that Moves the Needle",
   description:
-    "Axis Media is a Chicagoland digital marketing team offering websites, SEO, paid ads, and content that drives revenue for blue-collar and local service businesses.",
+    "Websites, SEO, and ads that turn searches into phone calls. Serving the Greater Chicago Area.",
   openGraph: {
-    title: "Axis Media — Digital Marketing that Moves the Needle",
-    description:
-      "Websites, SEO, ads, and content for local service businesses. Measurable results, zero fluff.",
     type: "website",
-    url: "https://axismedia.co",
+    url: "/",
+    title: "Axis Media — Websites, SEO & Ads for Chicago Service Businesses",
+    description:
+      "Fast, clean websites and campaigns that fill your calendar. Greater Chicago Area.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Axis Media — Digital Marketing",
+      },
+    ],
+    locale: "en_US",
+    siteName: "Axis Media",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Axis Media — Digital Marketing for Chicago",
+    description:
+      "Websites, SEO, and ads that turn searches into phone calls.",
+    images: ["/og.jpg"],
+  },
+  alternates: { canonical: "/" },
   icons: { icon: "/favicon.ico" },
 };
 
@@ -55,20 +73,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "Wheaton",
                 "Orland Park",
                 "Tinley Park",
-                "Aurora"
+                "Aurora",
               ],
               telephone: "+1-224-234-5689",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Chicagoland",
                 addressRegion: "IL",
-                addressCountry: "US"
-              }
+                addressCountry: "US",
+              },
             }),
           }}
         />
 
-        {/* Plausible analytics (optional—keep if you set it up) */}
+        {/* Google Analytics 4 */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-0BQ9TET3XZ"
+        />
+        <Script
+          id="ga4-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0BQ9TET3XZ', { page_path: window.location.pathname });
+            `,
+          }}
+        />
+
+        {/* Plausible (optional – you can remove if you only want GA4) */}
         <Script
           id="plausible"
           strategy="afterInteractive"
