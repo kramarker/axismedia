@@ -1,4 +1,3 @@
-// src/app/page.tsx
 "use client";
 
 import Link from "next/link";
@@ -16,9 +15,7 @@ export default function HomePage() {
       <section className="hero-new" id="top">
         <div className="container">
           <div className="chip-new">Chicagoland • Local Service Specialists</div>
-          <h1 className="hero-title">
-            Websites & growth for blue-collar businesses.
-          </h1>
+          <h1 className="hero-title">Websites & growth for blue-collar businesses.</h1>
           <p className="hero-sub">
             Fast, clean sites and data-driven SEO & ads that turn local searches into phone calls.
           </p>
@@ -147,7 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT (trimmed to remove UIUC line) */}
+      {/* ABOUT */}
       <section id="about" className="section">
         <div className="container grid grid-2">
           <div>
@@ -182,7 +179,6 @@ export default function HomePage() {
               method="POST"
               onSubmit={() => track("generate_lead", { method: "formspree" })}
             >
-              {/* ✅ absolute URL for redirect */}
               <input type="hidden" name="_redirect" value="https://axismediachicago.com/thanks" />
               <label><span>Name</span><input type="text" name="name" required /></label>
               <label><span>Email</span><input type="email" name="email" required /></label>
@@ -197,23 +193,13 @@ export default function HomePage() {
             <h3>Contact details</h3>
             <p>
               Phone:{" "}
-              <a
-                href="tel:+12242345689"
-                onClick={() => track("click_contact", { channel: "phone" })}
-              >
-                (224) 234-5689
-              </a>
+              <a href="tel:+12242345689">(224) 234-5689</a>
               <br />
               Chicagoland, IL
             </p>
             <p className="muted">
               Email:{" "}
-              <a
-                href="mailto:hello@axismedia.co"
-                onClick={() => track("click_contact", { channel: "email" })}
-              >
-                hello@axismedia.co
-              </a>
+              <a href="mailto:hello@axismedia.co">hello@axismedia.co</a>
             </p>
             <p className="muted">Prefer text? Add your number in the form and we’ll text you back.</p>
             <div style={{color:"var(--muted)", marginTop:12, fontSize:14}}>

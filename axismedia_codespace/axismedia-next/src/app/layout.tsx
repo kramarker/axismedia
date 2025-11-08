@@ -1,11 +1,9 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 import React, { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { AnalyticsPinger } from "./analytics";
-// IMPORTANT: use the client component version
 import SiteShell from "./components/site-shell.client";
 
 const ORIGIN = "https://axismediachicago.com";
@@ -47,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           content="SK_REIr_mAHP6M3iDoGOjGQnwP5KjXS8Tj-H51LIxis"
         />
       </head>
-      <body className="antialiased text-slate-900 bg-white">
+      <body className="antialiased">
         {/* Google Analytics */}
         <GoogleAnalytics gaId="G-0BQ9TET3XZ" />
 
