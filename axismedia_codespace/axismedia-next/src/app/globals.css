@@ -3,28 +3,28 @@
    =============================== */
 
 :root{
-  /* Core palette — deep green + gold theme */
-  --bg:#0b0f0e;            /* deep forest black-green */
-  --bg-2:#0e1513;
-  --surface:#101a17;       /* slightly lighter surface */
-  --surface-2:#0e1714;
-  --text:#e8efe9;          /* warm light gray-green text */
-  --muted:#9fb1a6;         /* muted green-gray */
+/* Core palette — deep gray-blue foundation */
+  --bg:#0b0e13;            /* rich charcoal-blue */
+  --bg-2:#10141b;
+  --surface:#131922;        /* slightly lighter surface for cards */
+  --surface-2:#0e141c;
+  --text:#e4e8ec;           /* neutral light text */
+  --muted:#9aa3b1;          /* muted gray-blue for secondary text */
 
-  /* Vibrant accents — emeralds and ambers */
-  --brand:#10b981;         /* emerald-500 */
-  --brand-2:#f59e0b;       /* amber-500 */
-  --brand-3:#34d399;       /* emerald-400 */
-  --brand-4:#fbbf24;       /* amber-400 */
-  --violet:#22d3ee;        /* optional subtle cyan accent */
+  /* Vibrant accents — modern blues with burgundy & crimson highlights */
+  --brand:#3b82f6;          /* blue-500 */
+  --brand-2:#ef4444;        /* red-500 */
+  --brand-3:#9333ea;        /* purple-600 (subtle depth accent) */
+  --brand-4:#991b1b;        /* dark burgundy */
+  --violet:#a855f7;         /* violet accent */
 
   /* Layout constants */
   --maxw:1120px;
   --radius:16px;
   --radius-md:14px;
 
-  /* Shadows & borders tuned for darker theme */
-  --shadow:0 20px 60px rgba(0,0,0,.35);
+  /* Shadows & borders tuned for dark glossy surfaces */
+  --shadow:0 20px 60px rgba(0,0,0,.4);
   --border:rgba(255,255,255,.08);
   --border-2:rgba(255,255,255,.15);
 }

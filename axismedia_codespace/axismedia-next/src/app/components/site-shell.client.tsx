@@ -17,13 +17,13 @@ function AxisLogo({ size = 28 }: { size?: number }) {
     <svg width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="Axis Media">
       <defs>
         <linearGradient id="axisGrad" x1="0" x2="1" y1="1" y2="0">
-          <stop offset="0%" stopColor="#22d3ee" />
-          <stop offset="50%" stopColor="#60a5fa" />
-          <stop offset="100%" stopColor="#22c55e" />
+          <stop offset="0%" stopColor="#3b82f6" />   {/* blue */}
+          <stop offset="50%" stopColor="#a855f7" />  {/* violet glow */}
+          <stop offset="100%" stopColor="#991b1b" /> {/* burgundy */}
         </linearGradient>
         <linearGradient id="axisStroke" x1="0" x2="1" y1="1" y2="0">
-          <stop offset="0%" stopColor="#14b8a6" />
-          <stop offset="100%" stopColor="#6366f1" />
+          <stop offset="0%" stopColor="#ef4444" />   {/* red highlight */}
+          <stop offset="100%" stopColor="#3b82f6" /> {/* blue edge */}
         </linearGradient>
       </defs>
       <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#axisGrad)" opacity="0.18" />
