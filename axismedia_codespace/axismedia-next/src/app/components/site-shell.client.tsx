@@ -18,11 +18,11 @@ function AxisLogo({ size = 28 }: { size?: number }) {
       <defs>
         <linearGradient id="axisGrad" x1="0" x2="1" y1="1" y2="0">
           <stop offset="0%" stopColor="#3b82f6" />   {/* blue */}
-          <stop offset="50%" stopColor="#a855f7" />  {/* violet glow */}
-          <stop offset="100%" stopColor="#991b1b" /> {/* burgundy */}
+          <stop offset="50%" stopColor="#1b0331ff" />  {/* violet glow */}
+          <stop offset="100%" stopColor="#450909ff" /> {/* burgundy */}
         </linearGradient>
         <linearGradient id="axisStroke" x1="0" x2="1" y1="1" y2="0">
-          <stop offset="0%" stopColor="#ef4444" />   {/* red highlight */}
+          <stop offset="0%" stopColor="#9ea555ff" />   {/* red highlight */}
           <stop offset="100%" stopColor="#3b82f6" /> {/* blue edge */}
         </linearGradient>
       </defs>
@@ -34,7 +34,7 @@ function AxisLogo({ size = 28 }: { size?: number }) {
         strokeWidth="4.2"
         strokeLinejoin="round"
       />
-      <rect x="27" y="33.5" width="10" height="4" rx="2" fill="#9AE6B4" opacity="0.9" />
+      <rect x="27" y="33.5" width="10" height="4" rx="2" fill="#d1db8fff" opacity="0.9" />
     </svg>
   );
 }
