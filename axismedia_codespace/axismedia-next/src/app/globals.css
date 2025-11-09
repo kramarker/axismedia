@@ -4,8 +4,8 @@
 
 :root{
 /* Core palette — deep gray-blue foundation */
-  --bg:#0b0e13;            /* rich charcoal-blue */
-  --bg-2:#10141b;
+  --bg:#0d1420;            /* rich charcoal-blue */
+  --bg-2:#141921;
   --surface:#131922;        /* slightly lighter surface for cards */
   --surface-2:#0e141c;
   --text:#e4e8ec;           /* neutral light text */
@@ -69,7 +69,7 @@ header{
   position:sticky;top:0;z-index:70;              /* keep header above content */
   background:
     radial-gradient(120% 120% at -10% -30%, rgba(96,165,250,.10), transparent 40%),
-    radial-gradient(110% 120% at 110% -30%, rgba(34,197,94,.10), transparent 38%),
+    radial-gradient(110% 120% at 110% -30%, rgba(34, 86, 197, 0.1), transparent 38%),
     linear-gradient(180deg, rgba(17,24,39,.75), rgba(17,24,39,.55) 65%, rgba(17,24,39,.48));
   backdrop-filter:saturate(160%) blur(10px);
   border-bottom:1px solid var(--border);
@@ -157,7 +157,7 @@ nav .nav-links{display:flex;gap:2px}
   position:relative;padding:96px 0 56px;
   background:
     radial-gradient(120% 80% at 10% 0%, rgba(96,165,250,.18), transparent 55%),
-    radial-gradient(120% 80% at 100% 0%, rgba(34,197,94,.16), transparent 45%),
+    radial-gradient(120% 80% at 100% 0%, rgba(34, 165, 197, 0.16), transparent 45%),
     radial-gradient(90% 70% at 30% 100%, rgba(251,146,60,.12), transparent 40%),
     linear-gradient(180deg, var(--bg-2), var(--bg));
   border-bottom:1px solid var(--border);
@@ -213,7 +213,7 @@ nav .nav-links{display:flex;gap:2px}
   content:"";position:absolute;inset:0;opacity:.8;
   background:
     radial-gradient(120% 90% at 0 0, rgba(96,165,250,.18), transparent 45%),
-    radial-gradient(80% 60% at 100% 100%, rgba(34,197,94,.16), transparent 35%)
+    radial-gradient(80% 60% at 100% 100%, rgba(34, 105, 197, 0.16), transparent 35%)
 }
 .caption{padding:10px 4px 0;color:var(--muted)}
 
