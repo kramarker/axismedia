@@ -13,9 +13,9 @@
 
   /* Vibrant accents — modern blues with burgundy & crimson highlights */
   --brand:#3b82f6;          /* blue-500 */
-  --brand-2:#720e0e;        /* red-500 */
+  --brand-2:#0e4c6f;        /* red-500 */
   --brand-3:#1d0336;        /* purple-600 (subtle depth accent) */
-  --brand-4:#783333;        /* dark burgundy */
+  --brand-4:#061c2a;        /* dark burgundy */
   --violet:#979a61;         /* violet accent */
 
   /* Layout constants */
@@ -158,7 +158,7 @@ nav .nav-links{display:flex;gap:2px}
   background:
     radial-gradient(120% 80% at 10% 0%, rgba(96,165,250,.18), transparent 55%),
     radial-gradient(120% 80% at 100% 0%, rgba(34, 165, 197, 0.16), transparent 45%),
-    radial-gradient(90% 70% at 30% 100%, rgba(251,146,60,.12), transparent 40%),
+    radial-gradient(90% 70% at 30% 100%, rgba(60, 111, 251, 0.107), transparent 40%),
     linear-gradient(180deg, var(--bg-2), var(--bg));
   border-bottom:1px solid var(--border);
 }

@@ -19,7 +19,7 @@ function AxisLogo({ size = 28 }: { size?: number }) {
         <linearGradient id="axisGrad" x1="0" x2="1" y1="1" y2="0">
           <stop offset="0%" stopColor="#3b82f6" />   {/* blue */}
           <stop offset="50%" stopColor="#1b0331ff" />  {/* violet glow */}
-          <stop offset="100%" stopColor="#450909ff" /> {/* burgundy */}
+          <stop offset="100%" stopColor="#0e2a3fff" /> {/* burgundy */}
         </linearGradient>
         <linearGradient id="axisStroke" x1="0" x2="1" y1="1" y2="0">
           <stop offset="0%" stopColor="#9ea555ff" />   {/* red highlight */}
