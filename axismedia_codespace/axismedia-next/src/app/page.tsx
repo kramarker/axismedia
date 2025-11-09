@@ -30,7 +30,7 @@ export default function HomePage() {
       <section id="services" className="section">
         <div className="container">
           <h2>What we do</h2>
-          <p className="lead">Everything you need to get found and hired — packaged for busy owners.</p>
+          <p className="lead">Everything you need to acquire customers — packaged for busy owners.</p>
           <div className="grid grid-3 mt-16">
             <article className="card"><h3>Website Design &amp; Build</h3>
               <p>Modern, mobile-first sites that load fast and showcase your work. Hosting &amp; maintenance included.</p>
@@ -160,7 +160,7 @@ export default function HomePage() {
           </div>
           <div className="card">
             <h3>What we value</h3>
-            <p><strong>Speed</strong> over perfection. <strong>Clarity</strong> over jargon. <strong>Proof</strong> over promises.</p>
+            <p><strong>Action</strong> over talk. <strong>Clarity</strong> over complexity. <strong>Proof</strong> over promises.</p>
             <p className="muted">Bring us your mess. We’ll bring a plan.</p>
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function HomePage() {
             </p>
             <p className="muted">
               Email:{" "}
-              <a href="mailto:hello@axismedia.co">hello@axismedia.co</a>
+              <a href="mailto:markantar30@gmail.com">markantar30@gmail.com</a>
             </p>
             <p className="muted">Prefer text? Add your number in the form and we’ll text you back.</p>
             <div style={{color:"var(--muted)", marginTop:12, fontSize:14}}>

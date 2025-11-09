@@ -3,28 +3,30 @@
    =============================== */
 
 :root{
-  /* Core palette */
-  --bg:#0b0f1a;            /* deep navy/ink */
-  --bg-2:#0e1422;
-  --surface:#111827;       /* slate-900ish */
-  --surface-2:#101826;     /* slightly cooler */
-  --muted:#94a3b8;         /* slate-400 */
-  --text:#e5e7eb;          /* zinc-200/300 */
+  /* Core palette — deep green + gold theme */
+  --bg:#0b0f0e;            /* deep forest black-green */
+  --bg-2:#0e1513;
+  --surface:#101a17;       /* slightly lighter surface */
+  --surface-2:#0e1714;
+  --text:#e8efe9;          /* warm light gray-green text */
+  --muted:#9fb1a6;         /* muted green-gray */
 
-  /* Vibrant accents */
-  --brand:#60a5fa;         /* blue-400 */
-  --brand-2:#22c55e;       /* green-500 */
-  --brand-3:#22d3ee;       /* cyan-400 */
-  --brand-4:#fb923c;       /* orange-400 */
-  --violet:#8b5cf6;
+  /* Vibrant accents — emeralds and ambers */
+  --brand:#10b981;         /* emerald-500 */
+  --brand-2:#f59e0b;       /* amber-500 */
+  --brand-3:#34d399;       /* emerald-400 */
+  --brand-4:#fbbf24;       /* amber-400 */
+  --violet:#22d3ee;        /* optional subtle cyan accent */
 
+  /* Layout constants */
   --maxw:1120px;
   --radius:16px;
   --radius-md:14px;
 
-  --shadow:0 20px 60px rgba(2,8,23,.35);
-  --border:rgba(148,163,184,.15);
-  --border-2:rgba(148,163,184,.22);
+  /* Shadows & borders tuned for darker theme */
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+  --border:rgba(255,255,255,.08);
+  --border-2:rgba(255,255,255,.15);
 }
 
 *{box-sizing:border-box}
